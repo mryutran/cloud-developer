@@ -19,7 +19,7 @@ import { Router, Request, Response } from 'express';
   // endpoint to filter an image from a public url.
   // IT SHOULD
   app.get("/filteredimage", async (req: Request, res:Response) => {
-    const image_url:string= req.query.image_url
+    const image_url:string= req.query["image_url"]
     //    1. validate the image_url query
     if(!image_url){
       return res.status(400).send({ message: 'URL is not valid' });
