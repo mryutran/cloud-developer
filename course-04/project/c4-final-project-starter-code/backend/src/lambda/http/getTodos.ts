@@ -20,7 +20,10 @@ export const handler = middy(
       body: JSON.stringify({
         items
       })
-    }  
+    
+  }
+} 
+) 
 handler.use(
   cors({
     credentials: true
