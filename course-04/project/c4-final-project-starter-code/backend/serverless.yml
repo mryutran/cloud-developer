@@ -85,7 +85,7 @@ functions:
           authorizer: Auth
           request:
             schemas:
-              "application/json": ${file(models/create-todo-model.json)}
+              application/json: ${file(models/create-todo-model.json)}
     iamRoleStatementsInherit: true
     iamRoleStatements:
       - Effect: Allow
@@ -108,7 +108,7 @@ functions:
           authorizer: Auth
           request:
             schemas:
-              "application/json": ${file(models/update-todo-model.json)}
+              application/json: ${file(models/update-todo-model.json)}
     iamRoleStatementsInherit: true
     iamRoleStatements:
       - Effect: Allow
