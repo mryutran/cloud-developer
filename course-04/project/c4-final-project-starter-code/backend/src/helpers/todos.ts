@@ -13,7 +13,7 @@ const bucketName = process.env.ATTACHMENT_S3_BUCKET
 // const attachmentUrl =  `https://${bucketName}.s3.amazonaws.com/${todoId}`
 
 export async function getTodosForUser(userId: string): Promise<TodoItem[]> {
-    return todosAccess.getAllTodos(userId)
+    return todosAccess.getTodos(userId)
 }
 
 export async function createTodo(userId: string, todo: CreateTodoRequest): Promise<TodoItem> {
