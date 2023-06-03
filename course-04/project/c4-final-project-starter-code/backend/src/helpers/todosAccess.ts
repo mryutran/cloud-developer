@@ -1,10 +1,13 @@
 import * as AWS from 'aws-sdk';
-import * as AWSXRay from 'aws-xray-sdk';
+// import * as AWSXRay from 'aws-xray-sdk';
+// import AWSXRay from "aws-xray-sdk-core";
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 import { createLogger } from '../utils/logger';
 import { TodoItem } from '../models/TodoItem';
 import { TodoUpdate } from '../models/TodoUpdate';
 
+// https://stackoverflow.com/questions/60207668/error-when-creating-a-dynamodb-document-client-aws-serverless-using-aws-xray-sdk
+const AWSXRay = require('aws-xray-sdk')
 const XAWS = AWSXRay.captureAWS(AWS)
 
 const logger = createLogger('TodosAccess')
@@ -13,6 +16,7 @@ const logger = createLogger('TodosAccess')
 
 function createDynamoDBClient() {
     return new XAWS.DynamoDB.DocumentClient()
+
 }
 
 export class TodosAccess {
