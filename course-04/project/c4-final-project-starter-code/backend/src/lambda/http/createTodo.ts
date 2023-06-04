@@ -13,9 +13,7 @@ export const handler = middy(
     if (!newTodo.name) {
       return {
         statusCode: 404,
-        body: JSON.stringify({
-          error: 'Name is required'
-        })
+        body: "Name is required"
       }
     }
   
