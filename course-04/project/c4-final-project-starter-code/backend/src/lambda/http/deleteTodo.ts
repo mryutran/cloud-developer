@@ -11,6 +11,15 @@ export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const todoId = event.pathParameters.todoId
     // TODO: Remove a TODO item by id
+
+    // Check if todoId exists
+    if (!todoId) {
+      return {
+        statusCode: 400,
+        body: "todoId is required"
+      }
+    }
+    
     const userId = getUserId(event);
     await deleteTodo(todoId, userId);
     
