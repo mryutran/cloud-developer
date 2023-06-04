@@ -1,5 +1,5 @@
-import { TodosAccess } from './todosAccess'
-import { getPresignedAttachmentUrl } from './attachmentUtils';
+import { TodosAccess } from '../helpers/todosAccess'
+import { getPresignedAttachmentUrl } from '../helpers/attachmentUtils';
 import { TodoItem } from '../models/TodoItem'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
