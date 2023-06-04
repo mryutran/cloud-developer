@@ -98,9 +98,12 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
-          request:
-            schemas:
-              application/json: ${file(models/create-todo-model.json)}
+          reqValidatorName: RequestBodyValidator
+          documentation:
+            summary: Create a new group
+            description: Create a new group
+            requestModels:
+              'application/json': CreateTodo
     iamRoleStatementsInherit: true
     iamRoleStatements:
       - Effect: Allow
@@ -121,9 +124,12 @@ functions:
           path: todos/{todoId}
           cors: true
           authorizer: Auth
-          request:
-            schemas:
-              application/json: ${file(models/update-todo-model.json)}
+          reqValidatorName: RequestBodyValidator
+          documentation:
+            summary: Create a new group
+            description: Create a new group
+            requestModels:
+              'application/json': UpdateTodo
     iamRoleStatementsInherit: true
     iamRoleStatements:
       - Effect: Allow
@@ -151,11 +157,10 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
-          # - dynamodb:GetItem
+          - dynamodb:GetItem
           - dynamodb:DeleteItem
         # Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
-        # Resource: !GetAtt TodosTable.Arn
-        Resource: "*"
+        Resource: !GetAtt TodosTable.Arn
       - Effect: Allow
         Action:
           - xray:PutTelemetryRecords

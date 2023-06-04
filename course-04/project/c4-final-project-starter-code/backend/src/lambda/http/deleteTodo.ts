@@ -12,16 +12,16 @@ export const handler = middy(
     const todoId = event.pathParameters.todoId
     // TODO: Remove a TODO item by id
 
-    // Check if todoId exists
-    if (!todoId) {
-      return {
-        statusCode: 400,
-        body: "todoId is required"
-      }
-    }
+    // // Check if todoId exists
+    // if (!todoId) {
+    //   return {
+    //     statusCode: 400,
+    //     body: "todoId is required"
+    //   }
+    // }
     
     const userId = getUserId(event);
-    await deleteTodo(todoId, userId);
+    await deleteTodo(userId, todoId);
     
     return {
       statusCode: 200,
