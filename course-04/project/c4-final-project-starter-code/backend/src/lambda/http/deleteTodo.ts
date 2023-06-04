@@ -16,7 +16,11 @@ export const handler = middy(
     
     return {
       statusCode: 200,
-      body: JSON.stringify({})
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
+      body: "deleted successfully"
     }
   }
     // return undefined
