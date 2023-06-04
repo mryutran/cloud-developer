@@ -98,7 +98,7 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
-          reqValidatorName: request-body-validator
+          reqValidatorName: RequestBodyValidator
           documentation:
             summary: Create a new todo
             description: Create a new todo
@@ -124,7 +124,7 @@ functions:
           path: todos/{todoId}
           cors: true
           authorizer: Auth
-          reqValidatorName: request-body-validator
+          reqValidatorName: RequestBodyValidator
           documentation:
             summary: update a todo
             description: update a todo
