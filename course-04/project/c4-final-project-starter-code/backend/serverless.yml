@@ -98,12 +98,15 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
-          reqValidatorName: RequestBodyValidator
-          documentation:
-            summary: Create a new todo
-            description: Create a new todo
-            requestModels:
-              'application/json': CreateTodo
+          # reqValidatorName: RequestBodyValidator
+          # documentation:
+          #   summary: Create a new todo
+          #   description: Create a new todo
+          #   requestModels:
+          #     'application/json': CreateTodo
+          request:
+            schemas:
+              application/json: ${file(models/create-todo-model.json)}
     iamRoleStatementsInherit: true
     iamRoleStatements:
       - Effect: Allow
