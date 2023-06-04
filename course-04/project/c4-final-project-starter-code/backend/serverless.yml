@@ -53,10 +53,10 @@ custom:
     models:
       - name: CreateTodo
         contentType: application/json
-        schema: ${file(models/create-todo-model.json)}
+        schemas: ${file(models/create-todo-model.json)}
       - name: UpdateTodo
         contentType: application/json
-        schema: ${file(models/create-todo-model.json)}
+        schemas: ${file(models/create-todo-model.json)}
 
 functions:
 
@@ -100,8 +100,8 @@ functions:
           authorizer: Auth
           reqValidatorName: RequestBodyValidator
           documentation:
-            summary: Create a new group
-            description: Create a new group
+            summary: Create a new todo
+            description: Create a new todo
             requestModels:
               'application/json': CreateTodo
     iamRoleStatementsInherit: true
@@ -126,8 +126,8 @@ functions:
           authorizer: Auth
           reqValidatorName: RequestBodyValidator
           documentation:
-            summary: Create a new group
-            description: Create a new group
+            summary: update a todo
+            description: update a todo
             requestModels:
               'application/json': UpdateTodo
     iamRoleStatementsInherit: true
