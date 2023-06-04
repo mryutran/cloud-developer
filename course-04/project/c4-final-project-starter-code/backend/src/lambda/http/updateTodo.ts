@@ -15,6 +15,14 @@ export const handler = middy(
     // TODO: Update a TODO item with the provided id using values in the "updatedTodo" object
     const userId = getUserId(event);
     await updateTodo(userId, todoId, updatedTodo)
+    if (!updateTodo) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({
+          error: 'userId and todoID are required'
+        })
+      }
+    }
 
     return {
       statusCode: 200,
