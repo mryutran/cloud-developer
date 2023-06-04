@@ -53,10 +53,10 @@ custom:
     models:
       - name: CreateTodo
         contentType: application/json
-        schemas: ${file(models/create-todo-model.json)}
+        schema: ${file(models/create-todo-model.json)}
       - name: UpdateTodo
         contentType: application/json
-        schemas: ${file(models/create-todo-model.json)}
+        schema: ${file(models/create-todo-model.json)}
 
 functions:
 
